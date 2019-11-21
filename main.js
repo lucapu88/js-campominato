@@ -23,19 +23,21 @@
 // La partita termina quando il giocatore inserisce un numero “mina” o raggiunge il numero massimo possibile di numeri consentiti (84).
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
-
+// creo l’array(vuoto)
 var mineGenerate = [];
 var ripetizioni = 0;
 while (mineGenerate.length < 16) {
- var mine = generaRandom(1, 100);
- if(!mineGenerate.includes(mine)) {
-       mineGenerate.push(mine);
+ var mine = generaRandom(1, 100); //Creo un numero causale
+ if(!mineGenerate.includes(mine)) { //Controllo che il numero non ci sia nell’Array
+       mineGenerate.push(mine); //Se non c’è lo metto nell’array
        console.log(mineGenerate);
+ }
+}
 
 do {
   var numero = parseInt(prompt('Digita un numero da 1 a 100'));
-
-} while (mineGenerate.includes(numero));
+  console.log(mineGenerate.includes(numero));
+} while (!mineGenerate.includes(numero));
 
   console.log('BOOOOOOOOM!!! hai perso!!! sei saltato in aria in 1000 pezzi');
 
