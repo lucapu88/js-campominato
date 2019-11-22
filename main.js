@@ -19,6 +19,7 @@ while (mineGenerate.length < 16) {
  contatore++
 }
 
+alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH")
 
 var numeriBuoni = []
 var ripetizioni = 0;
@@ -33,13 +34,15 @@ do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre c
   }
    console.log('numeri buoni: ' + numeriBuoni);
 
-} while (!mineGenerate.includes(numero) && ripetizioni < 5);
+
+} while (!mineGenerate.includes(numero) && ripetizioni < 84);//se si digita un numero compreso nell'array mineGenerate e se si raggiunge il numero max di tentativi si esce dal do-while
 
 
-if (ripetizioni == 5){
+if (ripetizioni == 84){ //se l'utente raggiunge 84 tentativi vince
   console.log('You Win....CHE CULOOOO!!! :-P');
-} else {
+} else { //altrimenti (se becca una mina prima) perde
   console.log('BOOOOOOOOM!!! GAME OVER!!! sei saltato in aria in 1000 pezzi');
+  console.log('il tuo punteggio è: ' + ripetizioni);
 }
 
 
