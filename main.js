@@ -39,8 +39,13 @@ do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre c
 
 
 if (ripetizioni == 84){ //se l'utente raggiunge 84 tentativi vince
+  document.getElementById('vittoria').innerHTML = 'You Win....CHE CULOOOO!!! :-P';
+  document.getElementById('se-vinci').setAttribute('class', 'visible');
   console.log('You Win....CHE CULOOOO!!! :-P');
 } else { //altrimenti (se becca una mina prima) perde
+  document.getElementById('sconfitta').innerHTML = 'GAME OVER!!! sei saltato in aria in 1000 pezzi!!!';
+  document.getElementById('punteggio').innerHTML = 'Il tuo punteggio è: ' + ripetizioni;
+  document.getElementById('se-perdi').setAttribute('class', 'visible');
   console.log('BOOOOOOOOM!!! GAME OVER!!! sei saltato in aria in 1000 pezzi');
   console.log('il tuo punteggio è: ' + ripetizioni);
 }
