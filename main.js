@@ -22,9 +22,9 @@ while (mineGenerate.length < 16) {
 var numeriBuoni = []
 do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre compreso tra 1 e 100.
   var numero = parseInt(prompt('Digita un numero da 1 a 100'));
-  if (numero != mineGenerate && !numeriBuoni.includes(numero)) {//i numeri digitati dall'utente vanno in un altro array (numeriBuoni) se sono diversi da quelli inseriti nell'array mineGenerate
+  if (!mineGenerate.includes(numero) && !numeriBuoni.includes(numero) && !isNaN(numero) && numero >= 1 && numero <= 100) {//i numeri digitati dall'utente vanno in un altro array (numeriBuoni) se sono diversi da quelli inseriti nell'array mineGenerate
     numeriBuoni.push(numero);
-  } else if (numeriBuoni.includes(numero) && isNaN(numero) && numero < 1 && numero > 100) { //controllo che l'utente abbia inserito un numero corretto
+  } else { //controllo che l'utente abbia inserito un numero corretto
     console.log('numero non corretto');
     alert('O stai cercando di barare, o hai digitato qualcosa che non è un numero!');
   }
@@ -38,8 +38,7 @@ do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre c
   console.log('BOOOOOOOOM!!! GAME OVER!!! sei saltato in aria in 1000 pezzi');
 }
 
-
-  //se digita una lettera?
+//come esce dal ciclo se vince?
 
 //funzioni
 function generaRandom(min, max) {
