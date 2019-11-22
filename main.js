@@ -13,7 +13,7 @@ var contatore = 0;
 while (mineGenerate.length < 16) {
  var mine = generaRandom(1, 100); //Creo un numero causale
  if(!mineGenerate.includes(mine)) { //Controllo che il numero non ci sia nell’Array
-       mineGenerate.push(mine); //Se non c’è lo metto nell’array
+       mineGenerate.push(mine); //Se non c’è lo metto nell’array (mineGenerate)
        console.log('mine' + mineGenerate);
  }
  contatore++
@@ -22,26 +22,18 @@ while (mineGenerate.length < 16) {
 var numeriBuoni = [];
 do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre compreso tra 1 e 100.
   var numero = parseInt(prompt('Digita un numero da 1 a 100'));
-  if (numero!= mineGenerate) {
+  if (numero!= mineGenerate) {//i numeri digitati dall'utente vanno in un altro array (numeriBuoni) se sono diversi da quelli inseriti nell'array mineGenerate
     numeriBuoni.push(numero);
   }
    console.log('numeri nuoni' + numeriBuoni);
+   if (numeriBuoni.length == 84) {//se l'utente arriva al numero max di tentativi senza beccare mine ha vinto
+     console.log('CHE CULO!!! hai vinto :-P');
+   }
 
-} while (!mineGenerate.includes(numero)) {
+} while (!mineGenerate.includes(numero)) {// Se il numero è presente nella lista delle mine generate, la partita termina
   console.log('BOOOOOOOOM!!! hai perso!!! sei saltato in aria in 1000 pezzi');
-  if (numeriBuoni.length == 10) {
-    console.log('hai vinto');
-  }
 }
-// while (ripetizioni <= 10) {
-//   console.log('hai vinto');
-//   ripetizioni++
-// }
 
-// Se il numero è presente nella lista dei numeri generati, la partita termina
-
-
-  //ma quando vince?
   //se digita sempre lo stesso numero che non è nell'array?
   //se digita una lettera?
 
