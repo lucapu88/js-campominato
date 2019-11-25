@@ -6,33 +6,30 @@
 // BONUS: all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali.
 // Con difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
 
-//BONUS: richiedere difficoltà all’utente difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
-var difficolta = 0;
+alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
 
-var livello = prompt('Seleziona livello: Facile (digita 0) / Medio (digita 1) / Difficile (digita 2)');
+//BONUS: richiedere difficoltà all’utente difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
+var rangeNumeri = 0;
+var livello = prompt('Seleziona livello: FACILE:digita 0 -MEDIO:digita 1 -DIFFICILE:digita 2');
 switch (livello) {
   case 0:
-      difficolta = 100;
-      var ripetizioniPossibili = difficolta - 16;
+      rangeNumeri = 100;
       break;
   case 1:
-      difficolta = 80;
-      var ripetizioniPossibili = difficolta - 16;
+      rangeNumeri = 80;
       break;
   case 2:
-      difficolta = 50;
-      var ripetizioniPossibili = difficolta - 16;
+      rangeNumeri = 50;
       break;
+  default:
+   var rangeNumeri = 100;
 }
-
-
-alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
 
 // creo l’array(vuoto)
 var mineGenerate = [];
 var contatore = 0;
 while (mineGenerate.length < 16) {
- var mine = generaRandom(1, 100); //Creo un numero causale
+ var mine = generaRandom(1,rangeNumeri); //Creo un numero causale
  if(!mineGenerate.includes(mine)) { //Controllo che il numero non ci sia nell’Array
        mineGenerate.push(mine); //Se non c’è lo metto nell’array (mineGenerate)
        console.log('mine: ' + mineGenerate);
@@ -54,10 +51,10 @@ do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre c
    console.log('numeri buoni: ' + numeriBuoni);
 
 
-} while (!mineGenerate.includes(numero) && ripetizioni < ripetizioniPossibili);//se si digita un numero compreso nell'array mineGenerate e se si raggiunge il numero max di tentativi si esce dal do-while
+} while (!mineGenerate.includes(numero) && ripetizioni < 84);//se si digita un numero compreso nell'array mineGenerate e se si raggiunge il numero max di tentativi si esce dal do-while
 
 
-if (ripetizioni == ripetizioniPossibili){ //se l'utente raggiunge 84 tentativi vince
+if (ripetizioni == 84){ //se l'utente raggiunge il numero max di tentativi vince
   document.getElementById('vittoria').innerHTML = 'You Win....CHE CULOOOO!!! :-P';
   document.getElementById('se-vinci').setAttribute('class', 'visible');
   console.log('You Win....CHE CULOOOO!!! :-P');
