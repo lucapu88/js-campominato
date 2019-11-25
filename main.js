@@ -7,20 +7,25 @@
 // Con difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
 
 //BONUS: richiedere difficoltà all’utente difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
-var difficoltà = 0;
+var difficolta = 0;
 
 var livello = prompt('Seleziona livello: Facile (digita 0) / Medio (digita 1) / Difficile (digita 2)');
 switch (livello) {
-    case 0:
-        difficoltà =  100;
-        break;
-    case 1:
-        difficoltà =  80;
-        break;
-    case 2:
-        difficoltà =  50;
-        break;
+  case 0:
+      difficolta = 100;
+      var ripetizioniPossibili = difficolta - 16;
+      break;
+  case 1:
+      difficolta = 80;
+      var ripetizioniPossibili = difficolta - 16;
+      break;
+  case 2:
+      difficolta = 50;
+      var ripetizioniPossibili = difficolta - 16;
+      break;
 }
+
+
 alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
 
 // creo l’array(vuoto)
@@ -49,10 +54,10 @@ do { //In seguito chiedo all’utente di inserire un numero alla volta, sempre c
    console.log('numeri buoni: ' + numeriBuoni);
 
 
-} while (!mineGenerate.includes(numero) && ripetizioni < 84);//se si digita un numero compreso nell'array mineGenerate e se si raggiunge il numero max di tentativi si esce dal do-while
+} while (!mineGenerate.includes(numero) && ripetizioni < ripetizioniPossibili);//se si digita un numero compreso nell'array mineGenerate e se si raggiunge il numero max di tentativi si esce dal do-while
 
 
-if (ripetizioni == 84){ //se l'utente raggiunge 84 tentativi vince
+if (ripetizioni == ripetizioniPossibili){ //se l'utente raggiunge 84 tentativi vince
   document.getElementById('vittoria').innerHTML = 'You Win....CHE CULOOOO!!! :-P';
   document.getElementById('se-vinci').setAttribute('class', 'visible');
   console.log('You Win....CHE CULOOOO!!! :-P');
