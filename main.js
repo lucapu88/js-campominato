@@ -6,11 +6,11 @@
 // BONUS: all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali.
 // Con difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
 
-alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
+alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti bellissimi pezzettini! vincerai se, raggiunto il numero massimo di tentativi, non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
 
 //BONUS: richiedere difficoltà all’utente difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
 var rangeNumeri = 0;
-var livello = prompt('Seleziona livello: FACILE:digita 0 -MEDIO:digita 1 -DIFFICILE:digita 2');
+var livello = prompt('Selezione livello: FACILE-digita 0; MEDIO-digita 1; DIFFICILE-digita 2.');
 switch (livello) {
   case 0:
       rangeNumeri = 100;
@@ -60,7 +60,7 @@ if (ripetizioni == 84){ //se l'utente raggiunge il numero max di tentativi vince
   console.log('You Win....CHE CULOOOO!!! :-P');
 } else { //altrimenti (se becca una mina prima) perde
   document.getElementById('sconfitta').innerHTML = 'GAME OVER!!! sei saltato in aria in 1000 pezzi!!!';
-  document.getElementById('punteggio').innerHTML = "IL TUO PUNTEGGIO E': " + ripetizioni;
+  document.getElementById('punteggio').innerHTML = "R.I.P. - IL TUO PUNTEGGIO E': " + ripetizioni;
   document.getElementById('se-perdi').setAttribute('class', 'visible');
   console.log('BOOOOOOOOM!!! GAME OVER!!! sei saltato in aria in 1000 pezzi');
   console.log('il tuo punteggio è: ' + ripetizioni);
