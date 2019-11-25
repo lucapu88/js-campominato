@@ -6,6 +6,22 @@
 // BONUS: all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali.
 // Con difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
 
+//BONUS: richiedere difficoltà all’utente difficoltà 0=> tra 1 e 100, con difficoltà 1 =>  tra 1 e 80, con difficoltà 2=> tra 1 e 50
+var difficoltà = 0;
+
+var livello = prompt('Seleziona livello: Facile (digita 0) / Medio (digita 1) / Difficile (digita 2)');
+switch (livello) {
+    case 0:
+        difficoltà =  100;
+        break;
+    case 1:
+        difficoltà =  80;
+        break;
+    case 2:
+        difficoltà =  50;
+        break;
+}
+alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH");
 
 // creo l’array(vuoto)
 var mineGenerate = [];
@@ -18,8 +34,6 @@ while (mineGenerate.length < 16) {
  }
  contatore++
 }
-
-alert("REGOLE: io penserò 16 numeri a caso che saranno le mine piazzate, tu digiterai dei numeri compresi tra 1 e 100, finchè non becchi lo stesso numero che ho pensato io, sarai fortunato ed andrai avanti nel gioco, altrimenti beccherai una mina ed esploderai in tanti pezzettini! vincerai se, raggiunto il numero massimo di tentativi (84), non pesterai mine. FAI ATTENZIONE A RICORDARTI I NUMERI DIGITATI......CI VEDIAMO ALL'INFERNO BUAHAHAHAHAHAH")
 
 var numeriBuoni = []
 var ripetizioni = 0;
@@ -44,7 +58,7 @@ if (ripetizioni == 84){ //se l'utente raggiunge 84 tentativi vince
   console.log('You Win....CHE CULOOOO!!! :-P');
 } else { //altrimenti (se becca una mina prima) perde
   document.getElementById('sconfitta').innerHTML = 'GAME OVER!!! sei saltato in aria in 1000 pezzi!!!';
-  document.getElementById('punteggio').innerHTML = 'Il tuo punteggio è: ' + ripetizioni;
+  document.getElementById('punteggio').innerHTML = "IL TUO PUNTEGGIO E': " + ripetizioni;
   document.getElementById('se-perdi').setAttribute('class', 'visible');
   console.log('BOOOOOOOOM!!! GAME OVER!!! sei saltato in aria in 1000 pezzi');
   console.log('il tuo punteggio è: ' + ripetizioni);
